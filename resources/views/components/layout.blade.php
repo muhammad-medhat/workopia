@@ -10,11 +10,12 @@
     <header>
         {{-- @include('partials.nav') --}}
         <x-header />
-        <h2>@yield('sub_title')</h2>
+        <h2>{{$sub_title}}</h2>
     </header>
 
     <main class="container mx-auto px-4 py-8 border">
-        @yield('content')
+        {{-- @yield('content') --}}
+        {{$slot}}
     </main>
 
     <footer>

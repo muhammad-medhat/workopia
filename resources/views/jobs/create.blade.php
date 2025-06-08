@@ -1,8 +1,8 @@
 
-@extends('layout')
-@section('title', 'Create Job')
-@section('sub_title', 'Add a New Job')
-@section('content')
+<x-layout>
+<x-slot name='title'>Create Job</x-slot>
+<x-slot name='sub_title'>Create Job</x-slot>
+
 
 <form action="/jobs" method="POST">
     <div>
@@ -18,5 +18,5 @@
     </div>
 
 </form>
+</x-layout>
 
-@endsection

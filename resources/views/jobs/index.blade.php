@@ -1,7 +1,6 @@
-@extends('layout')
-@section('title', 'Jobs List')
-@section('sub_title', 'Available Jobs')
-@section('content')
+<x-layout>
+    <x-slot name="title">Jobs</x-slot>
+    <x-slot name="sub_title">Job Listings</x-slot>
     <h1> {{$h1}} </h1>
     <ul>
         @forelse ($jobs as $job)
@@ -14,4 +13,4 @@
                 <li>No jobs found.</li>
         @endforelse
     </ul>
-@endsection
+</x-layout>
