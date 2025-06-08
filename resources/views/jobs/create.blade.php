@@ -1,4 +1,8 @@
-<h2>Create Job</h2>
+
+@extends('layout')
+@section('title', 'Create Job')
+@section('sub_title', 'Add a New Job')
+@section('content')
 
 <form action="/jobs" method="POST">
     <div>
@@ -14,3 +18,5 @@
     </div>
 
 </form>
+
+@endsection
