@@ -36,6 +36,7 @@ class JobController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
+    // This function is executed on POST request to /jobs
     {
         $name = $request->input('name');
         $description = $request->input('description');
