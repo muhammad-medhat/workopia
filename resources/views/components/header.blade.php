@@ -8,34 +8,31 @@
                 <a href={{url('/')}}>Workopia</a>
             </h1>
             <nav class="hidden md:flex items-center space-x-4">
-                <a href={{url('/jobs')}} class="text-white hover:underline py-2 {{ request()->is('jobs') ? $activeClass : '' }}"
-                    >All Jobs</a
-                >
-                <a
-                    href={{url('/saved-jobs')}}
-                    class="text-white hover:underline py-2 {{ request()->is('saved-jobs') ? $activeClass : '' }}""
-                    >Saved Jobs</a
-                >
-                <a href={{url('/login')}} class="text-white hover:underline py-2"
-                    >Login</a
-                >
-                <a
-                    href={{url('/register')}}.html"
-                    class="text-white hover:underline py-2"
-                    >Register</a
-                >
+
+                <x-nav-link :active="request()->is('jobs')" url="/jobs">
+                    All Jobs
+                </x-nav-link>
+                <x-nav-link :active="request()->is('saved-jobs')" url="/saved-jobs">
+                    Saved Jobs
+                </x-nav-link>
+                <x-nav-link :active="request()->is('login')" url="/login" icon='user'>
+                    Login
+                </x-nav-link>
+                <x-nav-link :active="request()->is('register')" url="/register">
+                    Register
+                </x-nav-link>
                 <a
                     href={{url('/dashboard')}}
                     class="text-white hover:underline py-2"
                 >
                     <i class="fa fa-gauge mr-1"></i> Dashboard
                 </a>
-                <a
-                    href={{url('/jobs/create')}}
-                    class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded hover:shadow-md transition duration-300"
-                >
-                    <i class="fa fa-edit"></i> Create Job
-                </a>
+                <x-button-link
+                    url="/jobs/create"
+                    icon="edit">
+                    Create Job
+                </x-button-link>
+
             </nav>
             <button
                 id="hamburger"
