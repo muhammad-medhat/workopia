@@ -9,24 +9,11 @@
             </h1>
             <nav class="hidden md:flex items-center space-x-4">
 
-                <x-nav-link :active="request()->is('jobs')" url="/jobs">
-                    All Jobs
-                </x-nav-link>
-                <x-nav-link :active="request()->is('saved-jobs')" url="/saved-jobs">
-                    Saved Jobs
-                </x-nav-link>
-                <x-nav-link :active="request()->is('login')" url="/login" icon='user'>
-                    Login
-                </x-nav-link>
-                <x-nav-link :active="request()->is('register')" url="/register">
-                    Register
-                </x-nav-link>
-                <a
-                    href={{url('/dashboard')}}
-                    class="text-white hover:underline py-2"
-                >
-                    <i class="fa fa-gauge mr-1"></i> Dashboard
-                </a>
+                <x-nav-link :active="request()->is('jobs')" url="/jobs">All Jobs</x-nav-link>
+                <x-nav-link :active="request()->is('saved-jobs')" url="/saved-jobs">Saved Jobs</x-nav-link>
+                <x-nav-link :active="request()->is('login')" url="/login" icon='user'>Login</x-nav-link>
+                <x-nav-link :active="request()->is('register')" url="/register">Register</x-nav-link>
+                <x-nav-link :active="request()->is('dashboard')" url='/dashboard' icon="gauge"> Dashboard         </x-nav-link>
                 <x-button-link
                     url="/jobs/create"
                     icon="edit">
@@ -46,33 +33,15 @@
             id="mobile-menu"
             class="hidden md:hidden bg-blue-900 text-white mt-5 pb-4 space-y-2"
         >
-            <a href={{url('/jobs')}} class="block px-4 py-2 hover:bg-blue-700"
-                >All Jobs</a
-            >
-            <a
-                href={{url('/saved-jobs')}}
-                class="block px-4 py-2 hover:bg-blue-700"
-                >Saved Jobs</a
-            >
-            <a href={{url('login')}} class="block px-4 py-2 hover:bg-blue-700"
-                >Login</a
-            >
-            <a
-                href={{url('/register')}}
-                class="block px-4 py-2 hover:bg-blue-700"
-                >Register</a
-            >
-            <a
-                href={{url('/dashboard')}}
-                class="block text-white hover:underline py-2"
-            >
-                <i class="fa fa-gauge mr-1"></i> Dashboard
-            </a>
-            <a
-                href={{url('/jobs/create')}}
-                class="block px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black"
-            >
-                <i class="fa fa-edit"></i> Create Job
-            </a>
+
+            <x-nav-link :active="request()->is('/jobs')" url="/jobs" :mobile=true>Jobs</x-nav-link>
+            <x-nav-link :active="request()->is('/saved-jobs')" url="/saved-jobs" :mobile=true>Saved Jobs</x-nav-link>
+            <x-nav-link :active="request()->is('/login')" url="/login" :mobile=true>Login</x-nav-link>
+                <x-button-link
+                    url="/jobs/create"
+                    :block="true"
+                    icon="edit">
+                    Create Job
+                </x-button-link>
         </nav>
     </header>
