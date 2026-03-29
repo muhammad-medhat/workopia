@@ -24,3 +24,7 @@ Homestead.yaml
 npm-debug.log
 Thumbs.db
 yarn-error.log
+
+_theme_files
+*.webpack.mix.js
+
