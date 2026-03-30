@@ -11,14 +11,14 @@ class JobController extends Controller
      */
     public function index()
     {
-        $h1="Available Jobs";
+        $h1 = "Available Jobs";
         $jobs = [
             'System Admin',
             'Software Engineer',
             'Data Scientist',
             'Product Manager'
         ];
-        return  view('jobs.index', ['h1' => $h1, 'jobs' => $jobs]);
+        return view('jobs.index', ['h1' => $h1, 'jobs' => $jobs]);
 
     }
 
@@ -73,5 +73,10 @@ class JobController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    // Custom function to handle saved jobs
+    public function saved()
+    {
+        return "Saved Jobs";
     }
 }

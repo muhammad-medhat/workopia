@@ -13,7 +13,9 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/jobs', [JobController::class, 'index']);
 Route::post('/jobs', [JobController::class, 'store']);
 Route::get('/jobs/create', [JobController::class, 'create']);
-Route::get('/jobs/{id}', [JobController::class, 'show']);
+Route::get('/jobs/{id}', [JobController::class, 'show'])->where('id', '[0-9]+');
+Route::get('/jobs/saved-jobs', [JobController::class, 'saved']);
+
 
 // testing requests
 Route::get('/test', [TestController::class, 'index']);
