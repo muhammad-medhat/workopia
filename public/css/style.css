@@ -11,3 +11,8 @@
 .hero {
     background-image: url("../images/hero.jpg");
 }
+.hero input[type="text"] {
+    /* background-color: unset;
+    background-color: initial; */
+    background-color: #fff;
+}
