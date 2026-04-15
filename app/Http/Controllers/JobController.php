@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use App\Models\Job;
+use Illuminate\Http\RedirectResponse;
 
 class JobController extends Controller
 {
@@ -15,7 +17,6 @@ class JobController extends Controller
         $h1 = "Available Jobs";
         $jobs = Job::all(); // Fetch all job listings from the database
         return view('jobs.index', ['h1' => $h1, 'jobs' => $jobs]);
-
     }
 
     /**
@@ -23,28 +24,36 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
         return view('jobs.create');
-
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     // This function is executed on POST request to /jobs
     {
+        //validation
+        $validate = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+        // dd($request->all());
         $name = $request->input('name');
         $description = $request->input('description');
-        return "$name has been created with description: $description";
+        Job::create([
+            'title' => $validate['name'],
+            'description' => $validate['description']
+        ]);
+        return redirect()->route('jobs.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Job $job): View
     {
-        return "show job:$id";
+        return view('jobs.show')->with('job', $job);
     }
 
     /**

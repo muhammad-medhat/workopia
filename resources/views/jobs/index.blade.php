@@ -1,13 +1,17 @@
 <x-layout>
-    <x-slot name="title">Jobs</x-slot>
-    <x-slot name="sub_title">Job Listings</x-slot>
+
     <h1> {{$h1}} </h1>
     <ul>
         @forelse ($jobs as $job)
             @if ($loop->even)
-                <li><strong>{{$job}}</strong> </li>
+                <li><strong>{{$loop->index}}:
+                {{-- use the url helper --}}
+                    <a href={{ route("jobs.show", $job->id) }}>
+                        {{$job->title}}</a></strong> </li>
             @else
-                <li>{{$loop->index}}: {{$job}}</li>
+                <li>{{$loop->index}}:
+                    <a href={{ route("jobs.show", $job->id) }}>
+                        {{$job->title}}</a></li>
             @endif
             @empty
                 <li>No jobs found.</li>

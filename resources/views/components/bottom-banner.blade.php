@@ -1,7 +1,7 @@
         @props(['title' => 'Looking to hire?',
         'description' => 'Post your job listing now and find the perfect candidate.',
         'buttonText' => 'Create Job',
-        'buttonLink' => 'create-job.html'])
+        'buttonLink' => 'create'])
         <!-- Bottom Banner -->
         <section class="container mx-auto my-6">
             <div
